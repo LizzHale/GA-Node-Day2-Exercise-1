@@ -57,3 +57,11 @@ app.post('/add', function (req, res) {
     res.redirect('/');
   });
 });
+
+app.delete('/delete/:id', function (req, res) {
+  models.User.find(req.params.id).success(function(user) {
+    user.destroy().success(function() {
+      res.redirect('/');
+    });
+  });
+});

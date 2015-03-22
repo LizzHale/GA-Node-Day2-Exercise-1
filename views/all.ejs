@@ -25,7 +25,8 @@
           <td> <%= all_users[i].createdAt %> </td>
           <td> <%= all_users[i].updatedAt %> </td>
           <td> <%= all_users[i].id %> </td>
-          <td><a href="/edit/<%= all_users[i].id %>">Edit User</a></td>
+          <td><form method='GET' action='/edit/<%= all_users[i].id %>'><button type='submit' class='btn btn-primary'>Edit User</button></form></td>
+          <td><form method='POST' action='/delete/<%= all_users[i].id %>?_method=delete'><button type='submit' class='btn btn-danger'>Delete User</button></form></td>
         </tr>
         <% } %>
       </tbody>
