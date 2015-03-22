@@ -17,7 +17,7 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  models.User.findAll().success(function(users) {
+  models.User.findAll().done(function(error, users) {
     res.render('all', {
       all_users: users
     });
@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/edit/:id', function (req, res) {
-  models.User.find(req.params.id).success(function(user) {
+  models.User.find(req.params.id).done(function(error, user) {
     res.render('edit', {
       user_info: user
     });
@@ -33,34 +33,34 @@ app.get('/edit/:id', function (req, res) {
 });
 
 app.put('/edit/:id', function (req, res) {
-  models.User.find(req.params.id).success(function(user) {
+  models.User.find(req.params.id).done(function(error, user) {
     user.updateAttributes({
       first_name: req.body.firstname,
       last_name: req.body.lastname,
       age: req.body.age
-    }).success(function() {
+    }).done(function(error, data) {
       res.redirect('/');
     });
   });
 });
 
-app.get('/add', function (req, res) {
+app.get('/add/', function (req, res) {
   res.render('add');
 });
 
-app.post('/add', function (req, res) {
+app.post('/add/', function (req, res) {
   models.User.create({
     first_name: req.body.firstname,
     last_name: req.body.lastname,
     age: req.body.age
-  }).success(function(data) {
+  }).done(function(error, data) {
     res.redirect('/');
   });
 });
 
 app.delete('/delete/:id', function (req, res) {
-  models.User.find(req.params.id).success(function(user) {
-    user.destroy().success(function() {
+  models.User.find(req.params.id).done(function(error, user) {
+    user.destroy().done(function(error, data) {
       res.redirect('/');
     });
   });
