@@ -13,3 +13,15 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
+
+app.get('/', function (req, res) {
+  res.render('all');
+});
+
+app.get('/edit', function (req, res) {
+  res.render('edit');
+});
+
+app.get('/add', function (req, res) {
+  res.render('add');
+});
