@@ -44,11 +44,11 @@ app.put('/edit/:id', function (req, res) {
   });
 });
 
-app.get('/add/', function (req, res) {
+app.get('/add', function (req, res) {
   res.render('add');
 });
 
-app.post('/add/', function (req, res) {
+app.post('/add', function (req, res) {
   models.User.create({
     first_name: req.body.firstname,
     last_name: req.body.lastname,
