@@ -5,11 +5,7 @@
 <html>
   <body>
         <div class="container">
-          <form method="post" action="/edit" class="form-horizontal">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input name="username" type="text" class="form-control" id="username" placeholder="Username">
-            </div>
+          <form method="post" action="/add" class="form-horizontal">
             <div class="form-group">
              <label for="firstname">First Name</label>
              <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First Name">
@@ -18,7 +14,11 @@
             <label for="lastname">Last Name</label>
             <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last Name">
           </div>
-        <button type="submit" class"btn btn-primary">Submit</button>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input name="age" type="text" class="form-control" id="age" placeholder="age">
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </body>
