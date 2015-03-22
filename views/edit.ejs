@@ -5,7 +5,7 @@
 <html>
   <body>
         <div class="container">
-          <form method="post" action="/add" class="form-horizontal">
+          <form method="post" action="/edit/<%= user_info.id %>?_method=put"" class="form-horizontal">
             <div class="form-group">
              <label for="firstname">First Name</label>
              <input name="firstname" type="text" class="form-control" id="firstname" value="<%= user_info.first_name %>">

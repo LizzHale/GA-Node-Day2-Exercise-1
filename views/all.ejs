@@ -4,6 +4,7 @@
 </head>
 <html>
   <body>
+    <div class='contain'>
     <table class="table">
       <thead>
         <tr>
@@ -24,9 +25,12 @@
           <td> <%= all_users[i].createdAt %> </td>
           <td> <%= all_users[i].updatedAt %> </td>
           <td> <%= all_users[i].id %> </td>
+          <td><a href="/edit/<%= all_users[i].id %>">Edit User</a></td>
         </tr>
         <% } %>
       </tbody>
     </table>
+    <form method='GET' action='/add'><button type='submit' class='btn btn-primary'>Add a New User</button></form>
+    </div>
   </body>
 </html>

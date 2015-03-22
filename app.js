@@ -32,6 +32,18 @@ app.get('/edit/:id', function (req, res) {
   });
 });
 
+app.put('/edit/:id', function (req, res) {
+  models.User.find(req.params.id).success(function(user) {
+    user.updateAttributes({
+      first_name: req.body.firstname,
+      last_name: req.body.lastname,
+      age: req.body.age
+    }).success(function() {
+      res.redirect('/');
+    });
+  });
+});
+
 app.get('/add', function (req, res) {
   res.render('add');
 });
