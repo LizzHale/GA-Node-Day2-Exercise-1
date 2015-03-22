@@ -17,11 +17,19 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.render('all');
+  models.User.findAll().success(function(users) {
+    res.render('all', {
+      all_users: users
+    });
+  });
 });
 
-app.get('/edit', function (req, res) {
-  res.render('edit');
+app.get('/edit/:id', function (req, res) {
+  models.User.find(req.params.id).success(function(user) {
+    res.render('edit', {
+      user_info: user
+    });
+  });
 });
 
 app.get('/add', function (req, res) {

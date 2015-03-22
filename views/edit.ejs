@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<head></head>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
 <html>
   <body>
-    <p>This is the placeholder for editing users</p>
+        <div class="container">
+          <form method="post" action="/add" class="form-horizontal">
+            <div class="form-group">
+             <label for="firstname">First Name</label>
+             <input name="firstname" type="text" class="form-control" id="firstname" value="<%= user_info.first_name %>">
+           </div>
+           <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input name="lastname" type="text" class="form-control" id="lastname" value="<%= user_info.last_name %>">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input name="age" type="text" class="form-control" id="age" value="<%= user_info.age %>"> 
+          </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
